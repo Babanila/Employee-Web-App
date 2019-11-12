@@ -1,14 +1,14 @@
 import styled from "@emotion/styled";
 
 export const MenuDrawerStyles = styled.div`
-  background: #192661;
+  background: gray;
   color: #ffffff;
   box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 5em;
   left: 0;
   width: 20%;
-  height: 50%;
+  height: 30%;
   max-width: 400px;
   z-index: 200;
 

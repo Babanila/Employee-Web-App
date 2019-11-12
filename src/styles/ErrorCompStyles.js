@@ -15,4 +15,17 @@ export const ErrorCompStyles = styled.div`
     padding: 1em;
     font-size: 1.5rem;
   }
+  .error-back {
+    width: 10%;
+    background-color: #192661;
+    color: #ffffff;
+    font-size: 20px;
+    align-self: center;
+    padding: 10px;
+    margin-top: 2em;
+    &:hover {
+      cursor: pointer;
+      background-color: #ff0000;
+    }
+  }
 `;

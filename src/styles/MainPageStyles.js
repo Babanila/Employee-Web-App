@@ -46,11 +46,11 @@ export const MainPageStyles = styled.div`
     display: inline-flex;
     justify-content: flex-end;
     align-items: flex-end;
+    background-color: #ffffff;
     position: fixed;
-    top: 5em;
+    top: 4.8em;
     left: 0;
     z-index: 95;
-    background-color: yellow;
 
     h3 {
       color: red;
@@ -62,12 +62,12 @@ export const MainPageStyles = styled.div`
       text-align: center;
       font-size: 1rem;
       font-weight: bold;
-      border: 1px solid #003399;
+      border: 1px solid #192661;
       border-radius: 5px;
       text-transform: uppercase;
       padding: 5px;
-      background-color: #003399;
-      margin-bottom: 2px;
+      background-color: #192661;
+      margin-bottom: 0px;
       color: #ffffff;
       &:hover {
         cursor: pointer;
@@ -147,6 +147,8 @@ export const MainPageStyles = styled.div`
     }
 
     .cols-4 {
+    }
+    .cols-5 {
     }
 
     @media all and (max-width: 767px) {

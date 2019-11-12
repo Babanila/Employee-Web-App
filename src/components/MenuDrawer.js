@@ -12,14 +12,16 @@ const MenuDrawer = () => {
               Home
             </Link>
           </li>
-          <li className="nav-li">
-            <Link to="/search" className="nav-link">
-              Search
-            </Link>
-          </li>
+
           <li className="nav-li">
             <Link to="/register" className="nav-link">
               Register New Employee
+            </Link>
+          </li>
+
+          <li className="nav-li">
+            <Link to="/about" className="nav-link">
+              About
             </Link>
           </li>
         </ul>

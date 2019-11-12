@@ -1,71 +1,68 @@
 import React, { useState } from "react";
-import { RegisterStyles } from "../styles/RegisterStyles";
+import { Redirect } from "react-router-dom";
+import axios from "axios";
 import Header from "./Header";
+import ErrorComp from "./ErrorComp";
+import { RegisterStyles } from "../styles/RegisterStyles";
 
-const Register = props => {
-  // const [newEmployee, setNewEmployee] = useState({});
+const Register = () => {
+  const [id, setId] = useState("");
+  const [employee_name, setName] = useState("");
+  const [employee_age, setAge] = useState("");
+  const [employee_salary, setSalary] = useState("");
+  const [profile_image, setPicture] = useState("");
+  const [error, setError] = useState({ message: "" });
+  const [redirect, setRedirect] = useState(false);
 
-  const [name, setName] = useState([]);
-  const [age, setAge] = useState([]);
-  const [salary, setSalary] = useState([]);
-  const [picture, setPicture] = useState([]);
-  const [error, setError] = useState([]);
-
+  // Create new employee
   const createEmployeeData = async data => {
     const url = "http://dummy.restapiexample.com/api/v1/create";
     try {
-      const result = fetch(url, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-      });
+      const res = await axios.post(url, data);
+
+      // Get the Id of the created employee from the response
+      setId(res.data.id);
+      setRedirect(true);
     } catch (e) {
-      console.log(e);
       setError(e);
     }
   };
 
   const handleSubmit = event => {
     event.preventDefault();
-    const data = {
-      employee_name: name,
-      employee_age: age,
-      employee_salary: salary,
-      profile_image: picture
-    };
-
-    createEmployeeData(data);
+    createEmployeeData({
+      name: employee_name,
+      age: employee_age,
+      salary: employee_salary,
+      picture: profile_image
+    });
   };
-
-  const errorOutput = data => <div className="register-error">Error: {data}</div>;
 
   return (
     <div>
       <Header pageTitle="Register Page" />
-      {error && error.length !== 0 ? (
-        errorOutput(error)
+      {error.message.length !== 0 ? (
+        <ErrorComp data={error} className="register-error" />
+      ) : redirect ? (
+        <Redirect to={`/`} />
       ) : (
         <RegisterStyles>
           <form className="register-form" onSubmit={handleSubmit}>
             <h1>New Employee Registration Form</h1>
-            <h3>Kindly fill all the fields below</h3>
+            <h3>Kindly fill all the fields below.</h3>
             <input
               className="form-input"
-              name="name"
-              value={name}
+              name="employee_name"
+              value={employee_name}
               placeholder="Name"
-              // onChange={handleInputChange}
               onChange={e => {
                 setName(e.target.value);
               }}
             />
             <input
               className="form-input"
-              name="age"
-              value={age}
+              name="employee_age"
+              value={employee_age}
               placeholder="Age"
               onChange={e => {
                 setAge(e.target.value);
@@ -73,8 +70,8 @@ const Register = props => {
             />
             <input
               className="form-input"
-              name="salary"
-              value={salary}
+              name="employee_salary"
+              value={employee_salary}
               placeholder="Salary"
               onChange={e => {
                 setSalary(e.target.value);
@@ -82,8 +79,8 @@ const Register = props => {
             />
             <input
               className="form-input"
-              name="picture"
-              value={picture}
+              name="profile_image"
+              value={profile_image}
               placeholder="Picture"
               onChange={e => {
                 setPicture(e.target.value);
@@ -98,20 +95,5 @@ const Register = props => {
     </div>
   );
 };
-export default Register;
 
-/*
-      <form>
-        <h1>Registration Form</h1>
-        <label className="spn1">Name :</label>
-        <input className="name" name="name" type="text" />
-        <label className="spn1">Age :</label>
-        <input className="name" name="age" type="text" />
-        <label className="spn1">Salary :</label>
-        <input className="name" name="salary" type="text" />
-        <label className="spn1">Picture :</label>&nbsp;
-        <input className="picture" name="picture" type="picture" />
-        <button className="submit" type="submit">
-          Register
-        </button>
-      </form> */
+export default Register;

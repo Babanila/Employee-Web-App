@@ -43,56 +43,16 @@ export const RegisterStyles = styled.div`
   }
 
   .form-button {
-    background-color: #003399;
+    background-color: #006400;
     font-size: 20px;
     font-weight: 900;
     align-self: center;
-    border: 3px solid #003399;
     border-radius: 4px;
-    text-transform: uppercase;
     padding: 10px;
     color: #ffffff;
     &:hover {
       cursor: pointer;
-      background-color: #006400;
-      border: 3px solid #006400;
+      background-color: #003399;
     }
   }
 `;
-
-/*
-// margin: 1% 25% 1% 25%;
-
-display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 80%;
-  height: 100%;
-  overflow: hidden;
-
-  .search-input {
-    padding: 6px;
-    font-size: 1rem;
-    border: none;
-  }
-  .search-button {
-    padding: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    background-color: #003399;
-    outline: none;
-    border: none;
-    color: #ffffff;
-  }
-
-  .search-button:hover {
-    background-color: #00ff00;
-  }
-
-
-   input[type="text"] {
-    border: 2px solid red;
-    border-radius: 4px;
-  }
-
-*/

@@ -10,8 +10,16 @@ function EmployeeDetails(props) {
   const { id } = props.match.params;
 
   const [employeeDetails, setEmployeeDetails] = useState({});
+  const [salary, setSalary] = useState("");
+  const [updateMessage, setUpdateMessage] = useState("");
+  const [open, setOpen] = useState(false);
   const [redirect, setRedirect] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState({ message: "" });
+
+  // useDeepCompareEffect is used in place of useEffect in order to avoid multiple API calls
+  useDeepCompareEffect(() => {
+    getEmployeeDetails(id);
+  }, [employeeDetails]);
 
   // Fetch data from the API using the employee ID
   const getEmployeeDetails = async id => {
@@ -20,16 +28,51 @@ function EmployeeDetails(props) {
     try {
       // Fetch data from the API using the employee ID
       const { data } = await axios(url);
+
+      // Setting the salary to local state
+      setSalary(data.employee_salary);
+
       setEmployeeDetails(data);
     } catch (e) {
       setError(e);
     }
   };
 
-  // useDeepCompareEffect is used in place of useEffect in order to avoid multiple API calls
-  useDeepCompareEffect(() => {
-    getEmployeeDetails(id);
-  }, [employeeDetails]);
+  // Update employee salary using the employee ID
+  const updateEmployeeSalary = async (id, data) => {
+    const url = `http://dummy.restapiexample.com/api/v1/update/${id}`;
+
+    try {
+      // Response data from the API using the employee ID
+      const res = await axios.put(url, data);
+
+      setUpdateMessage("Salary updated");
+      setOpen(true);
+    } catch (e) {
+      // Error handler
+      setError(e);
+    }
+  };
+
+  const handleSalaryChange = ({ target: { value } }) => {
+    setSalary(value);
+    setOpen(false);
+  };
+
+  // Update Handler
+  const handleUpdate = event => {
+    event.preventDefault();
+
+    employeeDetails.employee_salary === salary
+      ? setUpdateMessage("No changes in salary")
+      : // Call the update function
+        updateEmployeeSalary(id, {
+          name: employeeDetails.employee_name,
+          age: employeeDetails.employee_age,
+          salary: salary,
+          picture: employeeDetails.profile_image
+        });
+  };
 
   // Handler to Main page or root
   const handleBack = event => {
@@ -40,31 +83,44 @@ function EmployeeDetails(props) {
   const showEmployeeDetails = employee => (
     <div className="root-details">
       <div className="details" data-label="id">
-        ID: <span className="inner-details">{employee.id}</span>
+        <span className="outer-details">ID:</span>
+        <span className="inner-details">{employee.id}</span>
       </div>
       <div className="details" data-label="employee_name">
-        Name: <span className="inner-details">{employee.employee_name}</span>
+        <span className="outer-details">Name:</span>
+        <span className="inner-details">{employee.employee_name}</span>
       </div>
       <div className="details" data-label="employee_age">
-        Age: <span className="inner-details">{employee.employee_age}</span>
+        <span className="outer-details">Age:</span>
+        <span className="inner-details">{employee.employee_age}</span>
       </div>
       <div className="details" data-label="employee_salary">
-        Salary: <span className="inner-details">{employee.employee_salary}</span>
+        <span className="outer-details">Salary:</span>
+        <span className="inner-details">
+          <input className="inner-details-input" value={salary} onChange={handleSalaryChange} />
+        </span>
       </div>
-      <button className="epd-back" onClick={handleBack}>
-        Back
-      </button>
+      {open && <div className="msg-details">{updateMessage}</div>}
+      <div className="button-group">
+        <button className="epd-back" onClick={handleBack}>
+          Back
+        </button>
+        <button className="epd-back" onClick={handleUpdate}>
+          Update
+        </button>
+      </div>
     </div>
   );
 
   return (
     <EmployeeDetailsStyles className="table-row">
       <Header pageTitle="Employee Details" />
-      {error && <ErrorComp data={error} />}
-      {Object.keys(employeeDetails).length === 0 ? (
+      {error.message.length !== 0 ? (
+        <ErrorComp data={error} />
+      ) : Object.keys(employeeDetails).length === 0 ? (
         <div className="data-loading"> Loading ...</div>
       ) : redirect ? (
-        <Redirect to="/" />
+        <Redirect to={`/`} />
       ) : (
         showEmployeeDetails(employeeDetails)
       )}

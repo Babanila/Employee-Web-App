@@ -3,14 +3,31 @@ import styled from "@emotion/styled";
 export const EmployeeDetailsStyles = styled.div`
   margin-top: 7rem;
   .root-details {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    justify-self: center;
     justify-content: center;
+    align-content: center;
     color: #000000;
     background-color: #ffffff;
 
+    .msg-details {
+      width: 20%;
+
+      color: #ff0000;
+      font-size: 1.3rem;
+      font-family: "Noe Display";
+      font-weight: bold;
+      padding: 0.5em;
+      margin: 0 auto;
+      position: fixed;
+      top: 22.5rem;
+      right: 5rem;
+    }
+
     .details {
-      width: 30%;
+      width: 50%;
       align-self: center;
       color: #19232d;
       font-size: 1.5rem;
@@ -18,26 +35,50 @@ export const EmployeeDetailsStyles = styled.div`
       font-weight: bold;
       padding: 1em;
 
+      .outer-details {
+        margin-left: 35%;
+      }
+
       .inner-details {
+        width: 50%;
         color: #3300ff;
+        align-self: center;
         text-align: center;
         padding: 1em;
+
+        .inner-details-input {
+          width: 30%;
+          color: #3300ff;
+          text-align: center;
+          font-size: 1.3rem;
+          padding: 0.2em;
+        }
       }
     }
 
-    .epd-back {
-      width: 20&;
-      background-color: #192661;
-      color: #ffffff;
+    .button-group {
+      width: 50%;
+      display: flex;
+      flex-direction: row;
+      margin: 0 auto;
+      background-color: #ffffff;
       font-size: 20px;
-      font-weight: 900;
-      align-self: center;
-      border: 3px solid #192661;
-      text-transform: uppercase;
-      padding: 10px;
-      &:hover {
-        cursor: pointer;
-        border: 3px solid #ffffff;
+      justify-content: center;
+      margin-top: 2em;
+
+      .epd-back {
+        width: 20%;
+        background-color: #192661;
+        color: #ffffff;
+        font-size: 20px;
+        align-self: center;
+        border-radius: 5px;
+        padding: 10px;
+        margin-left: 1em;
+        &:hover {
+          cursor: pointer;
+          background-color: #00b300;
+        }
       }
     }
   }

@@ -7,7 +7,7 @@ export const HeaderStyles = styled.div`
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  background-color: #192661;
+  background-color: black;
   padding: 0 1rem;
   position: fixed;
   top: 0;
