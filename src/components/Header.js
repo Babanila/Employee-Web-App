@@ -11,18 +11,6 @@ const Header = props => {
   const handleMenuToggle = () => setMenuToggle(!menuToggle);
   const menuToggleDropHandler = () => setMenuToggle(false);
 
-  /*
-  const { pageTitle } = props;
-  let title;
-  // Set Page header title
-  if (pageTitle == "/") title = "Main Page";
-  if (pageTitle == "/search") title = "Search Page";
-  if (pageTitle == "/register") title = "Registration Page";
-  else {
-    title = pageTitle;
-  }
-  */
-
   return (
     <HeaderStyles>
       <MenuToggleButton click={handleMenuToggle} />

@@ -45,7 +45,7 @@ export const MainPageStyles = styled.div`
     height: 9%;
     display: inline-flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
     background-color: #ffffff;
     position: fixed;
     top: 4.8em;
@@ -56,23 +56,30 @@ export const MainPageStyles = styled.div`
       color: red;
     }
 
-    .sorter-button {
-      width: 16%;
-      height: 60%;
+    .sorter-label {
       text-align: center;
       font-size: 1rem;
       font-weight: bold;
-      border: 1px solid #192661;
+      margin-right: 1em;
+      color: blue;
+    }
+
+    .sorter-button {
+      min-width: 5%;
+      height: 60%;
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+      border: 1px solid gray;
       border-radius: 5px;
-      text-transform: uppercase;
-      padding: 5px;
-      background-color: #192661;
+      padding: 2px;
+      background-color: gray;
       margin-bottom: 0px;
       color: #ffffff;
       &:hover {
         cursor: pointer;
         border: 1px solid #9bc2e5;
-        background-color: darkgreen;
+        background-color: #192661;
       }
     }
 
@@ -110,7 +117,7 @@ export const MainPageStyles = styled.div`
     .table-header {
       width: 88%;
       position: fixed;
-      top: 6em;
+      top: 5.5em;
       left: 2em;
       z-index: 90;
       background-color: #95a5a6;

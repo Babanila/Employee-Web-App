@@ -21,7 +21,7 @@ const MenuDrawer = () => {
 
           <li className="nav-li">
             <Link to="/about" className="nav-link">
-              About
+              About App
             </Link>
           </li>
         </ul>

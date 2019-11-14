@@ -39,60 +39,58 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <RegisterStyles>
       <Header pageTitle="Register Page" />
       {error.message.length !== 0 ? (
         <ErrorComp data={error} className="register-error" />
       ) : redirect ? (
         <Redirect to={`/`} />
       ) : (
-        <RegisterStyles>
-          <form className="register-form" onSubmit={handleSubmit}>
-            <h1>New Employee Registration Form</h1>
-            <h3>Kindly fill all the fields below.</h3>
-            <input
-              className="form-input"
-              name="employee_name"
-              value={employee_name}
-              placeholder="Name"
-              onChange={e => {
-                setName(e.target.value);
-              }}
-            />
-            <input
-              className="form-input"
-              name="employee_age"
-              value={employee_age}
-              placeholder="Age"
-              onChange={e => {
-                setAge(e.target.value);
-              }}
-            />
-            <input
-              className="form-input"
-              name="employee_salary"
-              value={employee_salary}
-              placeholder="Salary"
-              onChange={e => {
-                setSalary(e.target.value);
-              }}
-            />
-            <input
-              className="form-input"
-              name="profile_image"
-              value={profile_image}
-              placeholder="Picture"
-              onChange={e => {
-                setPicture(e.target.value);
-              }}
-            />
-            <button className="form-button" type="submit">
-              Register
-            </button>
-          </form>
-        </RegisterStyles>
+        <form className="register-form" onSubmit={handleSubmit}>
+          <h1>New Employee Registration Form</h1>
+          <h3>Kindly fill all the fields below.</h3>
+          <input
+            className="form-input"
+            name="employee_name"
+            value={employee_name}
+            placeholder="Name"
+            onChange={e => {
+              setName(e.target.value);
+            }}
+          />
+          <input
+            className="form-input"
+            name="employee_age"
+            value={employee_age}
+            placeholder="Age"
+            onChange={e => {
+              setAge(e.target.value);
+            }}
+          />
+          <input
+            className="form-input"
+            name="employee_salary"
+            value={employee_salary}
+            placeholder="Salary"
+            onChange={e => {
+              setSalary(e.target.value);
+            }}
+          />
+          <input
+            className="form-input"
+            name="profile_image"
+            value={profile_image}
+            placeholder="Picture"
+            onChange={e => {
+              setPicture(e.target.value);
+            }}
+          />
+          <button className="form-button" type="submit">
+            Register
+          </button>
+        </form>
       )}
-    </div>
+    </RegisterStyles>
   );
 };
 

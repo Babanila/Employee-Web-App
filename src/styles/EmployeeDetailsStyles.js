@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const EmployeeDetailsStyles = styled.div`
+  min-width: 320px;
   margin-top: 7rem;
   .root-details {
     width: 100%;
@@ -14,50 +15,53 @@ export const EmployeeDetailsStyles = styled.div`
 
     .msg-details {
       width: 20%;
-
-      color: #ff0000;
+      color: green;
+      display: inline-flex;
       font-size: 1.3rem;
       font-family: "Noe Display";
       font-weight: bold;
-      padding: 0.5em;
       margin: 0 auto;
       position: fixed;
-      top: 22.5rem;
-      right: 5rem;
+      top: 21.5em;
+      right: 14em;
     }
 
     .details {
-      width: 50%;
+      width: 30%;
+      min-width: 200px;
+      display: inline-flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
       align-self: center;
-      color: #19232d;
+      color: black;
       font-size: 1.5rem;
       font-family: "Noe Display";
       font-weight: bold;
       padding: 1em;
 
       .outer-details {
-        margin-left: 35%;
+        margin-right: 1rem;
+        margin-left: 4rem;
+        @media all and (max-width: 767px) {
+          margin-left: 0;
+        }
+      }
+
+      .inner-details-input {
+        max-width: 50%;
+        color: blue;
+        font-size: 1.5rem;
+        background: #e9e9e9;
+        outline: none;
       }
 
       .inner-details {
-        width: 50%;
-        color: #3300ff;
-        align-self: center;
-        text-align: center;
-        padding: 1em;
-
-        .inner-details-input {
-          width: 30%;
-          color: #3300ff;
-          text-align: center;
-          font-size: 1.3rem;
-          padding: 0.2em;
-        }
+        color: blue;
       }
     }
 
     .button-group {
-      width: 50%;
+      width: 80%;
       display: flex;
       flex-direction: row;
       margin: 0 auto;
@@ -66,9 +70,9 @@ export const EmployeeDetailsStyles = styled.div`
       justify-content: center;
       margin-top: 2em;
 
-      .epd-back {
-        width: 20%;
-        background-color: #192661;
+      .back-button {
+        min-width: 60px;
+        background-color: black;
         color: #ffffff;
         font-size: 20px;
         align-self: center;
@@ -77,7 +81,22 @@ export const EmployeeDetailsStyles = styled.div`
         margin-left: 1em;
         &:hover {
           cursor: pointer;
-          background-color: #00b300;
+          background-color: red;
+        }
+      }
+
+      .update-button {
+        min-width: 60px;
+        background-color: green;
+        color: #ffffff;
+        font-size: 20px;
+        align-self: center;
+        border-radius: 5px;
+        padding: 10px;
+        margin-left: 1em;
+        &:hover {
+          cursor: pointer;
+          background-color: black;
         }
       }
     }

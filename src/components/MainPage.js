@@ -66,16 +66,18 @@ function MainList() {
     };
   };
 
-  const handleSortByName = event => {
-    event.preventDefault();
-    const newData = employeeList.sort(sortByName("employee_name"));
-    setEmployeeList(newData);
+  const handleSortByName = async () => {
+    // event.preventDefault();
+    console.log(employeeList.length);
+    const newData = await employeeList.sort(sortByName("employee_name"));
+
+    setQueryEmployeeData(newData);
   };
 
-  const handleSortBySalary = event => {
-    event.preventDefault();
-    const newData = employeeList.sort(sortByNumber("employee_salary"));
-    setEmployeeList(newData);
+  const handleSortBySalary = async () => {
+    // event.preventDefault();
+    const newData = await employeeList.sort(sortByNumber("employee_salary"));
+    setQueryEmployeeData(newData);
   };
 
   // User input query search
@@ -117,7 +119,7 @@ function MainList() {
 
   return (
     <MainPageStyles>
-      <Header pageTitle="Main Page" />
+      <Header pageTitle="MainPage" />
       <Search value={headerSearch} onChange={handleQueryInputChange} onSubmit={handleSubmit} />
 
       {error.message.length !== 0 ? (
@@ -125,12 +127,13 @@ function MainList() {
       ) : (
         <div className="contain">
           <div className="sorter-div">
+            <span className="sorter-label">Sort By</span>
             <button className="sorter-button" onClick={handleSortByName}>
-              Sort By Name
+              Name
             </button>
             <div className="sorter-spacer" />
             <button className="sorter-button" onClick={handleSortBySalary}>
-              Sort By Salary
+              Salary
             </button>
             <div className="sorter-spacer" />
           </div>

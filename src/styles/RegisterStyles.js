@@ -1,17 +1,7 @@
 import styled from "@emotion/styled";
 
 export const RegisterStyles = styled.div`
-  .register-error {
-    width: 50%;
-    height: auto;
-    margin: 0 auto;
-    margin-top: 10em;
-    padding: 0 auto;
-    font-size: 2rem;
-    color: red;
-    text-align: center;
-    border: 2px solid #000000;
-  }
+  min-width: 320px;
 
   .register-form {
     margin-top: 5rem;

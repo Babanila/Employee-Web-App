@@ -46,7 +46,7 @@ function EmployeeDetails(props) {
       // Response data from the API using the employee ID
       const res = await axios.put(url, data);
 
-      setUpdateMessage("Salary updated");
+      setUpdateMessage("Salary updated !!!");
       setOpen(true);
     } catch (e) {
       // Error handler
@@ -96,16 +96,16 @@ function EmployeeDetails(props) {
       </div>
       <div className="details" data-label="employee_salary">
         <span className="outer-details">Salary:</span>
-        <span className="inner-details">
-          <input className="inner-details-input" value={salary} onChange={handleSalaryChange} />
-        </span>
+        <input className="inner-details-input" value={salary} onChange={handleSalaryChange} />
+        {/* <span className="inner-details">
+        </span> */}
       </div>
       {open && <div className="msg-details">{updateMessage}</div>}
       <div className="button-group">
-        <button className="epd-back" onClick={handleBack}>
+        <button className="back-button" onClick={handleBack}>
           Back
         </button>
-        <button className="epd-back" onClick={handleUpdate}>
+        <button className="update-button" onClick={handleUpdate}>
           Update
         </button>
       </div>

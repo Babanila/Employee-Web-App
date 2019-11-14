@@ -30,22 +30,10 @@ export const MenuDrawerStyles = styled.div`
   }
 
   .nav-link:hover {
-    color: #adff2f;
+    color: blue;
   }
 
   .nav-link:active {
-    color: #ffff00;
+    color: yellow;
   }
 `;
-
-/*
-
-.nav-link {
-    color: #ffffff;
-    text-decoration: none;
-    text-align: left;
-    font-size: 25px;
-    background: #00f;
-  }
-
-*/

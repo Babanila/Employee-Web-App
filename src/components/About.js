@@ -6,7 +6,7 @@ const About = () => {
   return (
     <AboutStyles>
       <Header pageTitle="About Page" />
-      <div className="about-div" onSubmit={handleSubmit}>
+      <div className="about-div">
         <h1> Web application details </h1>
 
         <div className="about-div-section">
