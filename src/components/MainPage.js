@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import useDeepCompareEffect from "use-deep-compare-effect";
+import LazyLoad from "react-lazyload";
 import Header from "./Header";
 import Search from "./Search";
+import Loading from "./Loading";
 import ErrorComp from "./ErrorComp";
+import { sortByName, sortByNumber } from "./Utils";
 import { MainPageStyles } from "../styles/MainPageStyles";
 
-function MainList() {
+function MainPage() {
   const [employeeList, setEmployeeList] = useState([]);
   const [queryEmployeeData, setQueryEmployeeData] = useState([]);
   const [headerSearch, setHeaderSearch] = useState("");
@@ -51,39 +54,21 @@ function MainList() {
     }
   };
 
-  const sortByName = property => {
-    return function(a, b) {
-      const first = a[property].toLowerCase();
-      const second = b[property].toLowerCase();
-
-      return first.localeCompare(second);
-    };
-  };
-
-  const sortByNumber = property => {
-    return function(a, b) {
-      return a[property] - b[property];
-    };
-  };
-
+  // Handler for sorting by name
   const handleSortByName = async () => {
-    // event.preventDefault();
-    console.log(employeeList.length);
     const newData = await employeeList.sort(sortByName("employee_name"));
-
     setQueryEmployeeData(newData);
   };
 
+  // Handler for sorting by salary
   const handleSortBySalary = async () => {
-    // event.preventDefault();
     const newData = await employeeList.sort(sortByNumber("employee_salary"));
     setQueryEmployeeData(newData);
   };
 
-  // User input query search
+  // Handler for user input query search
   const handleQueryInputChange = event => {
     const { value } = event.target;
-    console.log(value);
     setHeaderSearch(value);
   };
 
@@ -95,25 +80,27 @@ function MainList() {
 
   const outputData = data => {
     return data.map((employee, i) => (
-      <Link to={`employee/${employee.id}`} key={employee.id} id="link-cols">
-        <li className="cols-li">
-          <div className="cols cols-2" data-label="No">
-            {i + 1}
-          </div>
-          <div className="cols cols-2" data-label="id">
-            {employee.id}
-          </div>
-          <div className="cols cols-2" data-label="employee_name">
-            {employee.employee_name}
-          </div>
-          <div className="cols cols-2" data-label="employee_age">
-            {employee.employee_age}
-          </div>
-          <div className="cols cols-2" data-label="employee_salary">
-            {employee.employee_salary}
-          </div>
-        </li>
-      </Link>
+      <LazyLoad key={employee.id} placeholder={<Loading />}>
+        <Link to={`employee/${employee.id}`} key={employee.id} id="link-cols">
+          <li className="table-row">
+            <div className="cols cols-2" data-label="No">
+              {i + 1}
+            </div>
+            <div className="cols cols-2" data-label="id">
+              {employee.id}
+            </div>
+            <div className="cols cols-2" data-label="employee_name">
+              {employee.employee_name}
+            </div>
+            <div className="cols cols-2" data-label="employee_age">
+              {employee.employee_age}
+            </div>
+            <div className="cols cols-2" data-label="employee_salary">
+              {employee.employee_salary}
+            </div>
+          </li>
+        </Link>
+      </LazyLoad>
     ));
   };
 
@@ -155,4 +142,4 @@ function MainList() {
   );
 }
 
-export default MainList;
+export default MainPage;

@@ -2,13 +2,13 @@ import styled from "@emotion/styled";
 
 export const MenuDrawerStyles = styled.div`
   background: gray;
+  width: 20%;
+  height: 30%;
   color: #ffffff;
   box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 5em;
   left: 0;
-  width: 20%;
-  height: 30%;
   max-width: 400px;
   z-index: 200;
 
@@ -35,5 +35,10 @@ export const MenuDrawerStyles = styled.div`
 
   .nav-link:active {
     color: yellow;
+  }
+
+  @media all and (max-width: 767px) {
+    height: 300px;
+    width: 150px;
   }
 `;

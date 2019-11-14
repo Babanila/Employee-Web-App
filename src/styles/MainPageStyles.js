@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const MainPageStyles = styled.div`
+  width: 100%;
   .error-contain {
     width: 50%;
     height: auto;
@@ -19,34 +20,21 @@ export const MainPageStyles = styled.div`
     max-width: 1500px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 10px;
-    padding-right: 10px;
   }
 
   #link-cols {
     color: #000000;
     text-decoration: none;
-
-    .cols-li {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      border: 1px solid #cccccc;
-      &:hover {
-        cursor: pointer;
-        border: 1px solid #9bc2e5;
-        background-color: #95a5a6;
-      }
-    }
   }
 
   .sorter-div {
     width: 100%;
     height: 9%;
     display: inline-flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     background-color: #ffffff;
+    margin: 0 auto;
     position: fixed;
     top: 4.8em;
     left: 0;
@@ -115,24 +103,27 @@ export const MainPageStyles = styled.div`
     }
 
     .table-header {
-      width: 88%;
+      width: 87%;
       position: fixed;
-      top: 5.5em;
-      left: 2em;
+      top: 5.8em;
+      left: 1.8em;
       z-index: 90;
-      background-color: #95a5a6;
-      align-self: center;
+      background-color: gray;
       margin: 0 auto;
       font-size: 1.5em;
+      text-align: center;
       text-transform: uppercase;
       letter-spacing: 0.01em;
-      list-style-type: none;
-      text-decoration: none;
     }
 
     .table-row {
       margin-left: 0;
       box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+      &:hover {
+        cursor: pointer;
+        color: blue;
+        border: 1px solid black;
+      }
     }
 
     .cols {
@@ -140,36 +131,43 @@ export const MainPageStyles = styled.div`
       flex-direction: row;
       justify-content: space-evenly;
       text-decoration: none;
+      align-self: bottom;
+      text-align: center;
     }
+
     .cols-0 {
+      flex-basis: 20%;
     }
 
     .cols-1 {
+      flex-basis: 20%;
     }
-
     .cols-2 {
+      flex-basis: 20%;
     }
-
     .cols-3 {
+      flex-basis: 20%;
     }
-
     .cols-4 {
-    }
-    .cols-5 {
+      flex-basis: 20%;
     }
 
     @media all and (max-width: 767px) {
       .table-header {
         display: none;
       }
+
       .table-row {
       }
+
       li {
         display: block;
       }
+
       .cols {
         flex-basis: 100%;
       }
+
       .cols {
         display: flex;
         padding: 10px 0;
@@ -184,61 +182,3 @@ export const MainPageStyles = styled.div`
     }
   }
 `;
-
-/*
-
-
-.mainHeader {
-    background-color: #000000;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 98;
-  }
-
-
-   .cols {
-      display: flex;
-    }
-    .cols-0 {
-      flex-basis: 20%;
-    }
-
-    .cols-1 {
-      flex-basis: 20%;
-    }
-
-    .cols-2 {
-      flex-basis: 20%;
-    }
-
-    .cols-3 {
-      flex-basis: 20%;
-    }
-
-    .cols-4 {
-      flex-basis: 20%;
-    }
-
-
-    .cols {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    text-decoration: none;
-
-    &:hover {
-      color: #000000;
-      cursor: pointer;
-      border: 1px solid #9bc2e5;
-      background-color: #e6e6e6;
-    }
-  }
-
-
-*/
