@@ -40,7 +40,7 @@ const Register = () => {
 
   return (
     <RegisterStyles>
-      <Header pageTitle="Register Page" />
+      <Header pageTitle="Registeration Page" />
       {error.message.length !== 0 ? (
         <ErrorComp data={error} className="register-error" />
       ) : redirect ? (

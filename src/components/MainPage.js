@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import useDeepCompareEffect from "use-deep-compare-effect";
-import LazyLoad from "react-lazyload";
 import Header from "./Header";
 import Search from "./Search";
-import Loading from "./Loading";
+import Output from "./Output";
 import ErrorComp from "./ErrorComp";
 import { sortByName, sortByNumber } from "./Utils";
 import { MainPageStyles } from "../styles/MainPageStyles";
@@ -78,32 +76,6 @@ function MainPage() {
     searchDataByName(headerSearch);
   };
 
-  const outputData = data => {
-    return data.map((employee, i) => (
-      <LazyLoad key={employee.id} placeholder={<Loading />}>
-        <Link to={`employee/${employee.id}`} key={employee.id} id="link-cols">
-          <li className="table-row">
-            <div className="cols cols-2" data-label="No">
-              {i + 1}
-            </div>
-            <div className="cols cols-2" data-label="id">
-              {employee.id}
-            </div>
-            <div className="cols cols-2" data-label="employee_name">
-              {employee.employee_name}
-            </div>
-            <div className="cols cols-2" data-label="employee_age">
-              {employee.employee_age}
-            </div>
-            <div className="cols cols-2" data-label="employee_salary">
-              {employee.employee_salary}
-            </div>
-          </li>
-        </Link>
-      </LazyLoad>
-    ));
-  };
-
   return (
     <MainPageStyles>
       <Header pageTitle="MainPage" />
@@ -132,9 +104,11 @@ function MainPage() {
               <div className="cols cols-3">Age</div>
               <div className="cols cols-4">Salary</div>
             </li>
-            {error.message.length === 0 && queryEmployeeData.length !== 0
-              ? outputData(queryEmployeeData)
-              : outputData(employeeList)}
+            {error.message.length === 0 && queryEmployeeData.length !== 0 ? (
+              <Output data={queryEmployeeData} />
+            ) : (
+              <Output data={employeeList} />
+            )}
           </ul>
         </div>
       )}

@@ -46,10 +46,9 @@ function EmployeeDetails(props) {
       // Response data from the API using the employee ID
       const res = await axios.put(url, data);
 
-      setUpdateMessage("Salary updated !!!");
+      setUpdateMessage("Salary updated.");
       setOpen(true);
     } catch (e) {
-      // Error handler
       setError(e);
     }
   };

@@ -22,8 +22,11 @@ export const EmployeeDetailsStyles = styled.div`
       font-weight: bold;
       margin: 0 auto;
       position: fixed;
-      top: 21.5em;
-      right: 14em;
+      top: 53%;
+      left: 45%;
+      @media all and (max-width: 767px) {
+        top: 70%;
+      }
     }
 
     .details {
