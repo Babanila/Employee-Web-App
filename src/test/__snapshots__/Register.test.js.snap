@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register Component should renders without crashing 1`] = `
+<div
+  className="css-vs0298"
+>
+  <div
+    className="css-yhx7tk"
+  >
+    <button
+      className="toggle-button css-9glsrg"
+      onClick={[Function]}
+    >
+      <div
+        className="button-line"
+      />
+      <div
+        className="button-line"
+      />
+      <div
+        className="button-line"
+      />
+    </button>
+    <h1>
+      Registeration Page
+    </h1>
+    <div
+      className="spacer"
+    />
+  </div>
+  <form
+    className="register-form"
+    onSubmit={[Function]}
+  >
+    <h1>
+      New Employee Registration Form
+    </h1>
+    <h3>
+      Kindly fill all the fields below.
+    </h3>
+    <input
+      className="form-input"
+      data-testid="employee_name"
+      name="employee_name"
+      onChange={[Function]}
+      placeholder="Name"
+      value=""
+    />
+    <input
+      className="form-input"
+      data-testid="employee_age"
+      name="employee_age"
+      onChange={[Function]}
+      placeholder="Age"
+      value=""
+    />
+    <input
+      className="form-input"
+      data-testid="employee_salary"
+      name="employee_salary"
+      onChange={[Function]}
+      placeholder="Salary"
+      value=""
+    />
+    <input
+      className="form-input"
+      data-testid="picture"
+      name="profile_image"
+      onChange={[Function]}
+      placeholder="Picture"
+      value=""
+    />
+    <button
+      className="form-button"
+      data-testid="register-button"
+      type="submit"
+    >
+      Register
+    </button>
+  </form>
+</div>
+`;

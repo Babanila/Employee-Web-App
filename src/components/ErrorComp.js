@@ -4,12 +4,12 @@ import { ErrorCompStyles } from "../styles/ErrorCompStyles";
 const ErrorComp = props => {
   return (
     <ErrorCompStyles>
-      <div>
-        <p>
-          Error Details:
-          <span className="error-message">{props.data.message}</span>
-        </p>
-      </div>
+      <p>
+        Error:
+        <span data-testid="errorMessage" className="error-message">
+          {props.data.message}
+        </span>
+      </p>
     </ErrorCompStyles>
   );
 };

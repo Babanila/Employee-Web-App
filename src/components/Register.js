@@ -50,6 +50,7 @@ const Register = () => {
           <h1>New Employee Registration Form</h1>
           <h3>Kindly fill all the fields below.</h3>
           <input
+            data-testid="employee_name"
             className="form-input"
             name="employee_name"
             value={employee_name}
@@ -59,6 +60,7 @@ const Register = () => {
             }}
           />
           <input
+            data-testid="employee_age"
             className="form-input"
             name="employee_age"
             value={employee_age}
@@ -68,6 +70,7 @@ const Register = () => {
             }}
           />
           <input
+            data-testid="employee_salary"
             className="form-input"
             name="employee_salary"
             value={employee_salary}
@@ -77,6 +80,7 @@ const Register = () => {
             }}
           />
           <input
+            data-testid="picture"
             className="form-input"
             name="profile_image"
             value={profile_image}
@@ -85,7 +89,7 @@ const Register = () => {
               setPicture(e.target.value);
             }}
           />
-          <button className="form-button" type="submit">
+          <button data-testid="register-button" className="form-button" type="submit">
             Register
           </button>
         </form>

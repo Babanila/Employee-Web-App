@@ -21,13 +21,13 @@ export const SearchStyles = styled.div`
     padding: 6px;
     font-size: 1rem;
     cursor: pointer;
-    background-color: grey;
+    background-color: green;
     outline: none;
     border: none;
     color: #ffffff;
   }
 
   .search-button:hover {
-    background-color: black;
+    background-color: blue;
   }
 `;
