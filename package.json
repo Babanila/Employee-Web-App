@@ -1,7 +1,7 @@
 {
   "name": "relax-days",
   "version": "1.0.0",
-  "description": "web application to thar shows header, drawer and main page",
+  "description": "web application that shows header, drawer and main page",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open --hot --mode development",
@@ -49,6 +49,7 @@
     "enzyme-adapter-react-16": "^1.15.1",
     "enzyme-to-json": "^3.4.3",
     "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.2.0",
@@ -58,7 +59,7 @@
     "jest": "^24.9.0",
     "jest-styled-components": "^6.3.3",
     "lint-staged": "^9.4.2",
-    "prettier": "1.19.1",
+    "prettier": "^1.19.1",
     "prettier-eslint": "^9.0.0",
     "prettier-eslint-cli": "^5.0.0",
     "react-test-renderer": "^16.11.0",
@@ -76,8 +77,8 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx}": "eslint",
-    "*.{js,jsx,json}": [
+    "*.{js}": "eslint",
+    "*.{js,json, jsx,css,md}": [
       "prettier --write",
       "git add"
     ]
